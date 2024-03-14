@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    @font-face {
+      font-family: 'Tenori';
+      src: url('https://github.com/urcades/tenori/blob/main/fonts/Tenori-Regular.woff2') format('woff2');
+      src: url('https://github.com/urcades/tenori/blob/main/fonts/Tenori-Regular.woff') format('woff');
+      src: url('Tenori-Regular.ttf') format('ttf');
+      src: url('Tenori-Regular.otf') format('otf');
+    }
+
+    html {
+      background-color: black;
+      color: white;
+    }
+
+    body {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      text-align: center;
+      font-family: 'Tenori', sans-serif;
+
+    }
+
+    h1 {
+      font-size: 5em;
+      font-feature-settings: 'ss01' 1;
+    }
+
+    p {
+      font-size: 10em;
+      font-feature-settings: 'ss01' 1;
+    }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const states = ['[xxx]', '[xxo]', '[xoo]', '[ooo]', 'TENORI'];
+      let index = 0;
+      const batteryIndicator = document.querySelector('#battery');
+
+      setInterval(() => {
+        index = (index + 1) % states.length;
+        batteryIndicator.textContent = states[index];
+      }, 1000);
+    });
+  </script>
+</head>
+
+<body>
+  <p id="battery">[xxx]</p>
+</body>
+
+</html>
